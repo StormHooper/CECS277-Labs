@@ -11,9 +11,15 @@ def read_maze():
   Return filled 2D list.
   '''
   maze_list = []
-  with open("maze.txt", "r") as file:
-    for line in file:
-      maze_list.append(list(line.strip()))
+  maze_choice = check_input.get_int_range("Enter Maze (1-2): ", 1, 2)
+  if maze_choice == 1:
+    with open("maze.txt", "r") as file:
+      for line in file:
+        maze_list.append(list(line.strip()))
+  else:
+    with open("maze2.txt", "r") as file:
+      for line in file:
+        maze_list.append(list(line.strip()))
   return maze_list
 
 
