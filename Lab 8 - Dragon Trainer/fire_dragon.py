@@ -9,6 +9,9 @@ class FireDragon(Dragon):
     self.f_shots = f_shots
 
   def special_attack(self, other):
+    '''
+    If fire dragon has any shots left, they can deal 5-9 damage to player.
+    '''
     if self.f_shots > 0:
       damage = randint(5, 9)
       other.take_damage(damage)

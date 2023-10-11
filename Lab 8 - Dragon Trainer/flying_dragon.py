@@ -9,8 +9,11 @@ class FlyingDragon(Dragon):
     self.swoops = swoops
 
   def special_attack(self, other):
+    '''
+    If flying dragon has swoops, they can deal 5-8 damage to player.
+    '''
     if self.swoops > 0:
-      damage = randint(5, 9)
+      damage = randint(5, 8)
       other.take_damage(damage)
       self.swoops -= 1
       return f"{self.name} swoops down and knocks you over for {damage} damage!\n"

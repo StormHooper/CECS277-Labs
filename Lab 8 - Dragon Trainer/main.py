@@ -1,6 +1,7 @@
 # Name: Tyler Pham and Matthew Samar
 # Date: 13 October 2023
-# Description: Dragon Trainer.
+# Description: Dragon Trainer. A game where the player fights against 3 dragons.
+# After the player types their name, they can choose a target to slash or shoot.
 from check_input import get_int_range
 from dragon import Dragon
 from fire_dragon import FireDragon
