@@ -12,14 +12,13 @@ from random import randint
 
 def main():
   '''
-  Set up the Player, welcome them, and set the Dragons
+  Set up the Player, welcome them, and set the Dragons (name, health, shots).
   '''
   player = Hero(input("What is your name, challenger? "), 50)
-  print(f"Welcome to dragon training, {player.name}.\n"
-  "You must defeat 3 dragons.\n")
+  print(f"Welcome to dragon training, {player.name}.\nYou must defeat 3 dragons.\n")
   dragons = [
       Dragon("Garchomp", 25),
-      FireDragon("Charizard", 20, 2),
+      FireDragon("Charizard", 20, 3),
       FlyingDragon("Salamence", 15, 5)
   ]
   '''
@@ -52,8 +51,7 @@ def main():
     Otherwise, the dragons will attack at random.
     '''
     if len(dragons) == 0:
-      print("\nCongratulations! You have defeated all 3 dragons, "
-      "you have passed the trials.")
+      print("\nCongratulations! You have defeated all 3 dragons, you have passed the trials.")
       training = False
     else:
       dragon_attack = randint(1, 2)
