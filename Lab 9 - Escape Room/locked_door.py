@@ -1,5 +1,6 @@
-from door import Door
 from random import randint
+
+from door import Door
 
 
 class LockedDoor(Door):
@@ -12,7 +13,7 @@ class LockedDoor(Door):
     return "A locked door. Look around for the key."
 
   def menu_options(self):
-    return "1. Look under the mat \n2. Look under the flower pot \n3. Look under the fake rock.\n"
+    return "1. Look under the mat\n2. Look under the flower pot\n3. Look under the fake rock\n"
 
   def get_menu_max(self):
     return 3

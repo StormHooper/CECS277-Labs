@@ -3,13 +3,14 @@
 # Description: Escape room. The program chooses three out of five doors to be unlocked.
 # After every attempt, if the user hasn't unlocked the door, they will get a clue. 
 # After unlocking every door, they will be congratulated and the game ends.
+from random import choice
+
 from basic_door import BasicDoor
 from check_input import get_int_range
 from code_door import CodeDoor
 from combo_door import ComboDoor
 from deadbolt_door import DeadboltDoor
 from locked_door import LockedDoor
-from random import choice
 
 
 def open_door(door):
@@ -36,7 +37,7 @@ def main():
   print("Welcome to the Escape Room. You must unlock 3 doors to escape...\n")
   doors = []
   for _ in range(3):
-    doors_list = (BasicDoor(), LockedDoor(), DeadboltDoor(), ComboDoor(), CodeDoor())
+    doors_list = [BasicDoor(), LockedDoor(), DeadboltDoor(), ComboDoor(), CodeDoor()]
     doors.append(choice(doors_list))
   for knobs in doors:
     open_door(knobs)

@@ -1,5 +1,6 @@
-from door import Door
 from random import randint
+
+from door import Door
 
 
 class ComboDoor(Door):

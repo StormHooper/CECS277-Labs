@@ -1,5 +1,6 @@
-from door import Door
 from random import choice
+
+from door import Door
 
 
 class DeadboltDoor(Door):
@@ -12,7 +13,7 @@ class DeadboltDoor(Door):
     return "A door with two deadbolts. Both need to be unlocked to open the door, but you can’t tell if each one is locked or unlocked."
 
   def menu_options(self):
-    return "1. Toggle bolt 1\n2. Toggle bolt 2\n"
+    return "1. Toggle bolt 1 \n2. Toggle bolt 2\n"
 
   def get_menu_max(self):
     return 2

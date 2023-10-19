@@ -1,5 +1,6 @@
-from door import Door
 from random import randint
+
+from door import Door
 
 
 class BasicDoor(Door):
@@ -12,7 +13,7 @@ class BasicDoor(Door):
     return "A door that is either pushed or pulled."
 
   def menu_options(self):
-    return "1. Push \n2. Pull \n"
+    return "1. Push \n2. Pull\n"
 
   def get_menu_max(self):
     return 2

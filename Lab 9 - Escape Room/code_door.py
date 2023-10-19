@@ -1,5 +1,6 @@
-from door import Door
 from random import choice
+
+from door import Door
 
 
 class CodeDoor(Door):
@@ -12,7 +13,7 @@ class CodeDoor(Door):
     return "A door with a coded keypad with three characters. Each key toggles a value with an ‘X’ or an ‘O’."
 
   def menu_options(self):
-    return "1. Press key 1 \n2. Press key 2 \n3. Press key 3 \n"
+    return "1. Press key 1 \n2. Press key 2 \n3. Press key 3\n"
 
   def get_menu_max(self):
     return 3
