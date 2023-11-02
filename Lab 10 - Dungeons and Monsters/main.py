@@ -32,12 +32,13 @@ def main():
     else:
       break
     '''
-    m -> monster encounter; i -> healing; n, s -> no action happens; f -> finish.
+    m -> monster encounter; i -> healing; n, s -> no action occurs; o -> Invalid move;
+    f -> finish
     '''
     if move == "m":
       monster = Enemy()
       print(f"You encounter a {monster}")
-      while monster.hp and monster.hp:
+      while monster.hp and player.hp:
         print(f"1. Attack {monster.name}\n2. Run Away")
         user_choice = get_int_range("Enter choice: ", 1, 2)
         if user_choice == 1:
@@ -47,15 +48,15 @@ def main():
         else:
           dungeon.reveal(player.loc)
           print("You ran away!")
-          while choice((player.go_north(), player.go_south(), 
-                        player.go_east(), player.go_west())) == "Invalid":
-            continue
+          run_choice = "m"
+          while run_choice == "o" or run_choice == "m":
+            run_choice = choice((player.go_north(), player.go_south(), player.go_east(), player.go_west()))
           break
       if not monster.hp:
         dungeon.remove_at_loc(player.loc)
         print(f"You have slain a {monster.name}\n")        
     elif move == "i":
-      if player.hp < player._max_hp:
+      if player.hp < player.max_hp:
         player.heal()
         dungeon.remove_at_loc(player.loc)
         print("You found a Health Potion! You drink it to restore your health.\n")
@@ -65,7 +66,7 @@ def main():
       print("There is nothing here...\n")
     elif move == "s":
       print("You headed back to the start of the dungeon.\n")
-    elif move == "Invalid":
+    elif move == "o":
       print("You cannot go that way...\n")
     else:
       print("Congratulations! You found the exit.")

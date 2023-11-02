@@ -16,28 +16,28 @@ class Hero(Entity):
   def attack(self, entity):
     damage = randint(2, 5)
     entity.take_damage(damage)
-    return f"Yeouchie! {self.name} smacks the life outta {entity.name} for {damage} damage!"
+    return f"{self.name} attacks a {entity.name} for {damage} damage."
 
   def go_north(self):
     if self.loc[0] > 0:
       self.loc[0] -= 1
       return Map()[self.loc[0]][self.loc[1]]
-    return "Invalid"
+    return "o"
 
   def go_south(self):
-    if self.loc[0] < len(Map()):
+    if self.loc[0] < len(Map()) - 1:
       self.loc[0] += 1
       return Map()[self.loc[0]][self.loc[1]]
-    return "Invalid"
+    return "o"
 
   def go_east(self):
-    if self.loc[1] < len(Map()[self.loc[1]]):
+    if self.loc[1] < len(Map()[self.loc[1]]) - 1:
       self.loc[1] += 1
       return Map()[self.loc[0]][self.loc[1]]
-    return "Invalid"
+    return "o"
   
   def go_west(self):
     if self.loc[1] > 0:
       self.loc[1] -= 1
       return Map()[self.loc[0]][self.loc[1]]
-    return "Invalid"
+    return "o"

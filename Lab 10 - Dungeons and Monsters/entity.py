@@ -16,6 +16,10 @@ class Entity(ABC):
   def hp(self):
     return self._hp
 
+  @property
+  def max_hp(self):
+    return self._max_hp
+
   def take_damage(self, dmg):
     self._hp -= dmg
     if self._hp <= 0:
