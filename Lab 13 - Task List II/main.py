@@ -1,9 +1,9 @@
 # Name: Tyler Pham and Matthew Samar
 # Date: 28 November 2023
-# Description: Task List. The program will start with a default list read from a file.
+# Description: Task List II. The program will start with a list read from a file.
 # The user can make changes to the list such as marking complete or adding to the list.
 # Changes to the list are done by overwriting the text file.
-import check_input
+from check_input import get_int_range
 from tasklist import Tasklist
 
 
@@ -17,21 +17,21 @@ def main_menu():
         "4. Add new task\n"
         "5. Search by date\n"
         "6. Save and quit")
-  return check_input.get_int_range("Enter a choice: ", 1, 5)
+  return get_int_range("Enter a choice: ", 1, 6)
 
 
 def get_date():
   '''
   Prompts enter year, month, day. Valid years are 2000-3000, months 1-12, days 1-31.
   Adds a 0 if the month or day are only 1 digit long.
-  Return date in format MM/DD/YYYY.
+  Return date in format MM/DD/YYYY as a string.
   '''
   print("Enter due date:")
-  month = str(check_input.get_int_range("Enter month: ", 1, 12))
+  month = str(get_int_range("Enter month: ", 1, 12))
   if len(month) == 1:
     month = f"0{month}"  
-  day = str(check_input.get_int_range("Enter day: ", 1, 31))
-  year = str(check_input.get_int_range("Enter year: ", 2000, 3000))
+  day = str(get_int_range("Enter day: ", 1, 31))
+  year = str(get_int_range("Enter year: ", 2000, 3000))
 
   if len(month) == 1:
     month = f"0{month}"
@@ -48,8 +48,8 @@ def get_time():
   Return date in form HH:MM. 
   '''
   print("Enter time:")
-  hour = str(check_input.get_int_range("Enter hour: ", 0, 23))
-  minute = str(check_input.get_int_range("Enter minute: ", 0, 59))
+  hour = str(get_int_range("Enter hour: ", 0, 23))
+  minute = str(get_int_range("Enter minute: ", 0, 59))
 
   if len(hour) == 1:
     hour = f"0{hour}"
@@ -89,9 +89,15 @@ def main():
     elif choice == 4:
       list.add_task(input("Enter a task: "), get_date(), get_time())
     elif choice == 5:
-      print("Enter date to search:")
-      month = 
+      date_search = get_date()
+      print(f"Tasks due on {date_search}:")
+      tasks = [t for t in list if t.date == date_search]
+      if not tasks:
+        print(f"No tasks due on {date_search}")
+      else:
+        [print(f"{i+1}. {t}") for i, t in enumerate(tasks)]
     else:
+      print("Saving List...")
       list.save_file()
       play = False
     '''

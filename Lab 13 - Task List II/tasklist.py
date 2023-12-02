@@ -64,19 +64,13 @@ class Tasklist:
       return None
 
   def __iter__(self):
-    '''
-    return iterator for tasklist
-    '''
     self._n = 0
     return self
 
   def __next__(self):
-    '''
-    return next item in tasklist
-    '''
     self._n += 1
-    if self._n > len(self.tasklist):
+    if self._n >= len(self._tasklist):
         raise StopIteration
     else:
-        return self._n
+        return self._tasklist[self._n]
       
