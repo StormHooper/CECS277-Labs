@@ -29,7 +29,7 @@ class Tasklist:
     '''
     Remove the current task from tasklist.
     '''
-    self.tasklist.pop(0)
+    return self.tasklist.pop(0)
 
 
   def save_file(self):

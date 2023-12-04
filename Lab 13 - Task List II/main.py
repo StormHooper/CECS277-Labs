@@ -81,10 +81,9 @@ def main():
       [print(f"{i+1}. {task}") for i, task in enumerate(list)]
     elif choice == 3:
       if len(list) >= 1:
-        print(f"Marking current task as complete: {list[0]}")
-        list.mark_complete()
+        print(f"Marking current task as complete: {list.mark_complete()}")
         if len(list) > 0:
-          print(f"New current task is: {list[0]}")
+          print(f"New current task is: {list.get_current_task()}")
         else:
           print("No new current tasks")
       else:
