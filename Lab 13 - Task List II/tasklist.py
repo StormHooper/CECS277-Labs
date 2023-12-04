@@ -72,5 +72,5 @@ class Tasklist:
     if self._n >= len(self._tasklist):
         raise StopIteration
     else:
-        return self._tasklist[self._n]
+        return self._tasklist[self._n-1]
       

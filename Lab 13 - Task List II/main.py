@@ -72,10 +72,13 @@ def main():
     After getting user's choice, program processes chosen function.
     '''
     if choice == 1:
-      print(f"Current task is:\n{list[0]}")
+      if len(list):
+        print(f"Current task is:\n{list.get_current_task()}")
+      else:
+        print("All tasks are complete!")
     elif choice == 2:
       print("Tasks:")
-      [print(task) for task in list]
+      [print(f"{i+1}. {task}") for i, task in enumerate(list)]
     elif choice == 3:
       if len(list) >= 1:
         print(f"Marking current task as complete: {list[0]}")
